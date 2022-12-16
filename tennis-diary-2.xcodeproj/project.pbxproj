@@ -14,11 +14,10 @@
 		AD4F1A8C29495FBC0027EE0C /* tennis_diary_2Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F1A8B29495FBC0027EE0C /* tennis_diary_2Tests.swift */; };
 		AD4F1A9629495FBC0027EE0C /* tennis_diary_2UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F1A9529495FBC0027EE0C /* tennis_diary_2UITests.swift */; };
 		AD4F1A9829495FBC0027EE0C /* tennis_diary_2UITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F1A9729495FBC0027EE0C /* tennis_diary_2UITestsLaunchTests.swift */; };
-		AD4F1AA829499A900027EE0C /* DateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F1AA729499A900027EE0C /* DateCell.swift */; };
-		AD4F1AAA294AAE3C0027EE0C /* LocationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F1AA9294AAE3C0027EE0C /* LocationCell.swift */; };
-		AD4F1AAC294AAE680027EE0C /* PlayerCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F1AAB294AAE680027EE0C /* PlayerCell.swift */; };
 		AD4F1AAF294AAEE10027EE0C /* MatchModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F1AAE294AAEE10027EE0C /* MatchModel.swift */; };
 		AD4F1AB1294AAF150027EE0C /* MatchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F1AB0294AAF150027EE0C /* MatchService.swift */; };
+		AD4F1AB3294AB15F0027EE0C /* MatchCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F1AB2294AB15F0027EE0C /* MatchCell.swift */; };
+		AD4F1AB5294AF8400027EE0C /* AddMatchVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD4F1AB4294AF8400027EE0C /* AddMatchVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,11 +49,10 @@
 		AD4F1A9129495FBC0027EE0C /* tennis-diary-2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tennis-diary-2UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD4F1A9529495FBC0027EE0C /* tennis_diary_2UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tennis_diary_2UITests.swift; sourceTree = "<group>"; };
 		AD4F1A9729495FBC0027EE0C /* tennis_diary_2UITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tennis_diary_2UITestsLaunchTests.swift; sourceTree = "<group>"; };
-		AD4F1AA729499A900027EE0C /* DateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateCell.swift; sourceTree = "<group>"; };
-		AD4F1AA9294AAE3C0027EE0C /* LocationCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationCell.swift; sourceTree = "<group>"; };
-		AD4F1AAB294AAE680027EE0C /* PlayerCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerCell.swift; sourceTree = "<group>"; };
 		AD4F1AAE294AAEE10027EE0C /* MatchModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchModel.swift; sourceTree = "<group>"; };
 		AD4F1AB0294AAF150027EE0C /* MatchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchService.swift; sourceTree = "<group>"; };
+		AD4F1AB2294AB15F0027EE0C /* MatchCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchCell.swift; sourceTree = "<group>"; };
+		AD4F1AB4294AF8400027EE0C /* AddMatchVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddMatchVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,9 +140,8 @@
 			isa = PBXGroup;
 			children = (
 				AD4F1A7829495FBA0027EE0C /* TennisMatchesVC.swift */,
-				AD4F1AA729499A900027EE0C /* DateCell.swift */,
-				AD4F1AA9294AAE3C0027EE0C /* LocationCell.swift */,
-				AD4F1AAB294AAE680027EE0C /* PlayerCell.swift */,
+				AD4F1AB2294AB15F0027EE0C /* MatchCell.swift */,
+				AD4F1AB4294AF8400027EE0C /* AddMatchVC.swift */,
 			);
 			path = Screens;
 			sourceTree = "<group>";
@@ -301,10 +298,9 @@
 				AD4F1AB1294AAF150027EE0C /* MatchService.swift in Sources */,
 				AD4F1A7929495FBA0027EE0C /* TennisMatchesVC.swift in Sources */,
 				AD4F1AAF294AAEE10027EE0C /* MatchModel.swift in Sources */,
-				AD4F1AA829499A900027EE0C /* DateCell.swift in Sources */,
-				AD4F1AAA294AAE3C0027EE0C /* LocationCell.swift in Sources */,
+				AD4F1AB5294AF8400027EE0C /* AddMatchVC.swift in Sources */,
 				AD4F1A7529495FBA0027EE0C /* AppDelegate.swift in Sources */,
-				AD4F1AAC294AAE680027EE0C /* PlayerCell.swift in Sources */,
+				AD4F1AB3294AB15F0027EE0C /* MatchCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

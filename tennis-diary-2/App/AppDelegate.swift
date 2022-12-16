@@ -15,7 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow.init(frame: UIScreen.main.bounds) //main container for screens
-        window?.rootViewController = TennisMatchesVC.init()
+        
+        let navigationController = UINavigationController(rootViewController: TennisMatchesVC.init())
+        
+        window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
         
         return true

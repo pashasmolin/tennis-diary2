@@ -7,17 +7,13 @@
 
 import UIKit
 
-enum SectionType: Int, CaseIterable {
-    case date = 0
-    case player1
-    case player2
-    case location
-}
+
 
 final class TennisMatchesVC: UIViewController {
     
     var matchService = MatchService.init()
     
+    //2. Save State
     var matches: [MatchModel] = []
     
     private lazy var tableView: UITableView = {
@@ -29,35 +25,42 @@ final class TennisMatchesVC: UIViewController {
         tableView.backgroundColor = .systemGray6
         tableView.translatesAutoresizingMaskIntoConstraints = false
         
-        tableView.register(DateCell.self, forCellReuseIdentifier: DateCell.reuseId)
-        
-        tableView.register(LocationCell.self, forCellReuseIdentifier: LocationCell.reuseId)
-        
-        tableView.register(PlayerCell.self, forCellReuseIdentifier: PlayerCell.reuseId)
+        tableView.register(MatchCell.self, forCellReuseIdentifier: MatchCell.reuseId)
         
         return tableView
     }()
     
+    //MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        view.backgroundColor = .blue
         
+        //1. Configure View
         setupViews()
         setupConstraints()
         
+        //3. Business Logic
         fetchMatches()
     }
     
-    func fetchMatches() {
+    //MARK: - Private
+    private func fetchMatches() {
+        //5. Update Model
         matches = matchService.fetch()
         tableView.reloadData()
     }
     
-    func setupViews() {
+    private func setupViews(){
         view.backgroundColor = .systemGray6
         view.addSubview(tableView)
+        
+        let barButtonItem = UIBarButtonItem.init(barButtonSystemItem: .add, target: self, action: #selector(addMatchAction))
+        
+        navigationItem.rightBarButtonItem = barButtonItem
     }
     
-    func setupConstraints() {
+    private func setupConstraints() {
         
         NSLayoutConstraint.activate([
             tableView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 0),
@@ -65,62 +68,46 @@ final class TennisMatchesVC: UIViewController {
             tableView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: 0),
             tableView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
         ])
-        
     }
+    
+    //MARK: - Actions
+    //7. Event Handling
+    @objc func addMatchAction() {
+        showMatchDetailScreen()
+    }
+    
+    //8. Navigation
+    func showMatchDetailScreen() {
+        
+        //9. Configure Module
+        let controller = TennisMatchesVC.init()
+        //navigationController?.pushViewController(controller, animated: true)
+        
+        present(controller, animated: true)
+    }
+    
 }
 
+//MARK: - UITableViewDataSource
 extension TennisMatchesVC: UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return matches.count //section - container for cells
-    }
-    
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return SectionType.allCases.count
+        return matches.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let sectionType = SectionType.init(rawValue: indexPath.row)
+        let match = matches[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: MatchCell.reuseId, for: indexPath ) as! MatchCell
         
-        let match = matches[indexPath.section]
-        
-        switch sectionType {
-        case .date:
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: DateCell.reuseId, for: indexPath) as! DateCell
-            cell.configure(match.date)
-            return cell
-            
-            
-        case .player1:
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: PlayerCell.reuseId, for: indexPath) as! PlayerCell
-            cell.configure(model: (match.player1))
-            return cell
-            
-        case .player2:
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: PlayerCell.reuseId, for: indexPath) as! PlayerCell
-            cell.configure(model: (match.player2))
-            return cell
-            
-        case .location:
-            
-            let cell = tableView.dequeueReusableCell(withIdentifier: LocationCell.reuseId, for: indexPath) as! LocationCell
-            cell.configure(match.location)
-            return cell
-            
-            
-        default:
-            return UITableViewCell()
-        }
-        
+        //6. Update View
+        cell.configure(model: match)
+        return cell
     }
-    
-    
 }
 
+//MARK: - UITableViewDelegate
 extension TennisMatchesVC: UITableViewDelegate {
     
 }
+
